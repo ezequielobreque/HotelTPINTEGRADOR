@@ -20,15 +20,18 @@ class Hotel {
     static mapping = {
         featuredImageBytes column: 'featured_image_bytes', sqlType: 'longblob' // <3>
     }
+    String toString(){
+        nombre
 
+
+    }
 
     static constraints = {
     nombre unique:true;
-    direccion();
-        informacion();
-    estrellas(min:1,Max:5);
-    habitaciones(nullable:true)
 
+    estrellas(min:0,Max:5);
+    habitaciones(nullable:true)
+        informacion nullable: true
         featuredImageBytes nullable: true
         featuredImageContentType nullable: true
 

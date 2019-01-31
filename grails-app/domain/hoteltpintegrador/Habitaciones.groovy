@@ -13,4 +13,7 @@ class Habitaciones {
 
 
     }
+    String toString(){
+        nombre
+    }
 }
