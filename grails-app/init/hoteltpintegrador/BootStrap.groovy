@@ -13,6 +13,9 @@ class BootStrap {
                 }
                 hotel.save()
             }
+        User user = new User(username: "admin",password:"admin").save()
+        Role role=new Role(authority:  "ROLE_ADMIN").save()
+        UserRole.create(user,role)
     }
     def destroy = {
     }

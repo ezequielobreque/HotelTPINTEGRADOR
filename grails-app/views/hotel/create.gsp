@@ -27,7 +27,7 @@
             </g:hasErrors>
             <g:form resource="${this.hotel}" method="POST">
                 <fieldset class="form">
-                    <f:all bean="hotel"/>
+                    <f:all bean="hotel" except="featuredImageBytes,featuredImageContentType"/>
                 </fieldset>
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />

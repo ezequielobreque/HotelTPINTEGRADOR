@@ -1,10 +1,11 @@
 package hoteltpintegrador
 
+import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import hoteltpintegrador.grails.FeaturedImageCommand
 
 import static org.springframework.http.HttpStatus.*
-
+@Secured('ROLE_ADMIN')
 class HotelController {
 
     HotelService hotelService
@@ -61,7 +62,7 @@ class HotelController {
     }
     def editFeaturedImage(Long id) {
         Hotel hotel = hotelService.get(id)
-        if (!hotel) {
+        if (!hotel ) {
             notFound()
         }
         [hotel: hotel]
@@ -96,8 +97,8 @@ class HotelController {
             return
         }
 
-        Locale locale = request.locale
-        flash.message = crudMessageService.message(CRUD.UPDATE, domainName(locale), cmd.id, locale)
+
+
         redirect hotel
     }
     def delete(Long id) {

@@ -1,3 +1,5 @@
-// Place your Spring DSL code here
+import hoteltpintegrador.UserPasswordEncoderListener
+    // Place your Spring DSL code here
 beans = {
+    userPasswordEncoderListener(UserPasswordEncoderListener)
 }

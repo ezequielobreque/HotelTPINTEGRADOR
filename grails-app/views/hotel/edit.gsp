@@ -29,7 +29,7 @@
             <g:form resource="${this.hotel}" method="PUT">
                 <g:hiddenField name="version" value="${this.hotel?.version}" />
                 <fieldset class="form">
-                    <f:all bean="hotel"/>
+                    <f:all bean="hotel" except="featuredImageBytes,featuredImageContentType"/>
                 </fieldset>
                 <fieldset class="buttons">
                     <input class="save" type="submit" value="${message(code: 'default.button.update.label', default: 'Update')}" />
