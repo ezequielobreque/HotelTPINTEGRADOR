@@ -1,8 +1,10 @@
 package hoteltpintegrador
 
 import grails.plugin.springsecurity.annotation.Secured
+import grails.transaction.Transactional
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
+
 @Secured('ROLE_ADMIN')
 class ReservasController {
 
@@ -19,9 +21,15 @@ class ReservasController {
         respond reservasService.get(id)
     }
 
-    def create() {
-        respond new Reservas(params)
+    def create(Reservas reservas) {
+
+        respond new Reservas(reservas)
+
     }
+
+
+
+
 
     def save(Reservas reservas) {
         if (reservas == null) {

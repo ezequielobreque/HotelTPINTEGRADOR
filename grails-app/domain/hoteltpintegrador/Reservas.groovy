@@ -1,15 +1,21 @@
 package hoteltpintegrador
 
 class Reservas {
-    static hasOne =[huesped:Huesped];
+    String nombre
     static belongsTo = [hotel:Hotel];
+    Habitaciones habitacion;
     int cantidadHuesped;
     Date fechaIN;
-    Date fechaOut
+    String link
+    Date fechaOut;
+    Huesped huesped;
+
+
 
     static constraints = {
         fechaOut(blank:false,validator: { val, obj -> val?.after(obj.fechaIN)
         });
 
     }
+
 }

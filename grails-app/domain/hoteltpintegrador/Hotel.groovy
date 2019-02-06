@@ -7,10 +7,9 @@ class Hotel {
 
     String informacion;
 
-    static hasMany=[habitaciones:Habitaciones,reserva:Reservas];
-
+    static hasMany=[habitaciones:Habitaciones,reserva:Reservas,imagen:Imagenes];
+    String imagen
     Integer estrellas;
-
 
 
 
@@ -34,7 +33,8 @@ class Hotel {
         informacion nullable: true
         featuredImageBytes nullable: true
         featuredImageContentType nullable: true
-
+        reserva(nullable: true)
+        imagen(nullable: true)
 
 
     }

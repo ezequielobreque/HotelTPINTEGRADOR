@@ -6,9 +6,8 @@ class Huesped {
     String email
     String tipoDocumento
     Integer nDocumento
-    int cantidadHuesped
-    Date fecha;
-    Reservas reserva;
+    static hasMany=[reservas:Reservas]
+
 
 
     static constraints = {

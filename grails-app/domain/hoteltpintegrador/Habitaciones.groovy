@@ -3,6 +3,7 @@ package hoteltpintegrador
 class Habitaciones {
     String nombre;
     static belongsTo = [hotel:Hotel]
+    boolean disponible=true;
     Integer cantidadDePersonas;
 
 

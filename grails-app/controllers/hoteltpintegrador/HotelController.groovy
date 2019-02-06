@@ -23,6 +23,7 @@ class HotelController {
 
     def create() {
         respond new Hotel(params)
+
     }
 
 
