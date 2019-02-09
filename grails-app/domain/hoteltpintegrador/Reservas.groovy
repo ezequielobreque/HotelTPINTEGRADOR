@@ -1,5 +1,7 @@
 package hoteltpintegrador
 
+
+
 class Reservas {
     String nombre
     static belongsTo = [hotel:Hotel];

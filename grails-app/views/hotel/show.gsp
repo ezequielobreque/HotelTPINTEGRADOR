@@ -20,8 +20,9 @@
             <g:if test="${this.hotel.featuredImageBytes}">
                 <img src="<g:createLink controller="hotel" action="featuredImage" id="${this.hotel.id}"/>" width="400"/>
             </g:if>
-
-            <asset:image src="${this.hotel.imagen}" width = "200" height = "200"/>
+            for
+            <h1>"${this.hotel.imagenes}"</h1>
+            <asset:image src="${this.hotel.imagenes}" width = "200" height = "200"/>
 
 
 

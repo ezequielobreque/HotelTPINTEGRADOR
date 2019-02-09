@@ -11,6 +11,10 @@ class SolicitudHotel {
     Date fechaIN;
     Date fechaOut;
 
+
     static constraints = {
+        fechaOut(blank:false,validator: { val, obj -> val?.after(obj.fechaIN)
+        });
+
     }
 }

@@ -8,7 +8,7 @@ class Hotel {
     String informacion;
 
     static hasMany=[habitaciones:Habitaciones,reserva:Reservas,imagen:Imagenes];
-    String imagen
+    String imagenes
     Integer estrellas;
 
 

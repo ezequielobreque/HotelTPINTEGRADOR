@@ -5,4 +5,9 @@ class Imagenes {
 
     static constraints = {
     }
+    String toString(){
+        nombre
+
+
+    }
 }

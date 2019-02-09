@@ -81,21 +81,20 @@ class SolicitudHotelController {
 
         solicitudReserva.delete flush:true
 
-        request.withFormat {
-            form multipartForm {
+
                 flash.message= "Solicitud de reserva "+solicitudReserva.id+" aceptado"
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
+                redirect (action:"index")
+
+
     }
 
     def aceptarSolicitud(SolicitudHotel solicitudReserva){
 
         def lista = solicitudReserva.getHotel().getHabitaciones()
-        def habitacionesDisponibles = lista.findAll { it.disponible == true }
+        def habitacionesDisponibles = lista.findAll { it.itsDisponible(solicitudReserva) == true }
+        println('llege')
         def habitacion = habitacionesDisponibles.find { it.cantidadDePersonas >= solicitudReserva.cantidadHuesped}
-
+        println('llege')
         if (habitacion != null) {
 
             habitacion.disponible=false
@@ -123,32 +122,17 @@ class SolicitudHotelController {
             reserva.save flush:true
             habitacion.save flush:true
 
-         /*   def reservaDiaHabitacion =DiaReserva.list().find { it.start == solicitudReserva.fechaInicio && it.tipo == "Habitacion"}
-            if (reservaDiaHabitacion == null){
-                DiaReserva diaReserva=new DiaReserva()
-                diaReserva.tipo="Habitacion"
-                diaReserva.cantidadReservas++
-                diaReserva.start=solicitudReserva.fechaInicio
-                diaReserva.title=diaReserva.cantidadReservas+" habitac. reservadas"
-                diaReserva.save flush:true
-            }else{
-                reservaDiaHabitacion.cantidadReservas++
-                //reservaDiaHabitacion.start=solicitudReserva.fechaInicio
-                reservaDiaHabitacion.title=reservaDiaHabitacion.cantidadReservas+" habitac. reservadas"
-                reservaDiaHabitacion.save flush:true
-            }*/
+
 
             aceptar(solicitudReserva)
 
         }else if (habitacion==null) {
 
-            request.withFormat {
-                form multipartForm {
-                    flash.message = "No se han encontrado habitaciones disponibles"
-                    redirect action:"index", method:"GET"
-                }
-                '*'{ render status: NO_CONTENT }
-            }
+
+
+            flash.message = "error habitaciones ocupadas"
+            redirect(action: 'index')
+
         }
 
     }
