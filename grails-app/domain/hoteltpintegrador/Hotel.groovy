@@ -8,17 +8,14 @@ class Hotel {
     String informacion;
 
     static hasMany=[habitaciones:Habitaciones,reserva:Reservas,imagen:Imagenes];
-    String imagenes
+
     Integer estrellas;
 
 
 
-    byte[] featuredImageBytes // <1>
-    String featuredImageContentType // <2>
 
-    static mapping = {
-        featuredImageBytes column: 'featured_image_bytes', sqlType: 'longblob' // <3>
-    }
+
+
     String toString(){
         nombre
 
@@ -31,8 +28,6 @@ class Hotel {
     estrellas(min:0,Max:5);
     habitaciones(nullable:true)
         informacion nullable: true
-        featuredImageBytes nullable: true
-        featuredImageContentType nullable: true
         reserva(nullable: true)
         imagen(nullable: true)
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
-    <head>
+
+<head>
+
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'solicitudHotel.label', default: 'SolicitudHotel')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
@@ -14,7 +15,7 @@
             </ul>
         </div>
         <div id="create-solicitudHotel" class="content scaffold-create" role="main">
-            <h1><g:message code="default.create.label" args="[entityName]" /></h1>
+            <h1>Solicitud de reserva para el  ${this.solicitudHotel.hotel} </h1>
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
@@ -27,12 +28,31 @@
             </g:hasErrors>
             <g:form resource="${this.solicitudHotel}" method="POST">
                 <fieldset class="form">
-                    <f:all bean="solicitudHotel"/>
-                </fieldset>
+                    <f:all bean="solicitudHotel" except="fechaIN,fechaOut"/>
+
+                <div class="form-group row justify-content-center" bean="solicitudHabitacion" property="fechaIN">
+                <label for="example-date-input" class="col-1 col-form-label">Fecha Ingreso</label>
+                <div class="col-3"><g:field type="date" id="datepicker" name="fechaIN" value="${solicitudHabitacionInstance?.fechaIN}" required="true" /></div>
+
+                </div>
+                <div class="form-group row justify-content-center" bean="solicitudHabitacion" property="fechaOut">
+                    <label for="example-date-input" class="col-1 col-form-label">Fecha Egreso</label>
+                    <div class="col-3">
+                        <g:field type="date" id="datepicker" name="fechaOut" value="${solicitudHabitacionInstance?.fechaOut}" required="true" />
+                    </div>
+                </div>
+
+
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
                 </fieldset>
             </g:form>
         </div>
+    <script>
+        $( function() {
+            $( "#datepicker" ).datepicker();
+        } );
+    </script>
+
     </body>
 </html>

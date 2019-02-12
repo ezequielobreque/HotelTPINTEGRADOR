@@ -5,7 +5,7 @@ import grails.transaction.Transactional
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
 
-@Secured('ROLE_ADMIN')
+@Secured('permitAll')
 class ReservasController {
 
     ReservasService reservasService
@@ -21,11 +21,11 @@ class ReservasController {
         respond reservasService.get(id)
     }
 
-    def create(Reservas reservas) {
+   /* def create(Reservas reservas) {
 
         respond new Reservas(reservas)
 
-    }
+    }*/
 
 
 

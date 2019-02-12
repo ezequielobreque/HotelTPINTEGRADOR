@@ -4,17 +4,23 @@
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'hoteltpintegrador.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'hoteltpintegrador.UserRole'
 grails.plugin.springsecurity.authority.className = 'hoteltpintegrador.Role'
+grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
 	[pattern: '/error',          access: ['permitAll']],
 	[pattern: '/index',          access: ['permitAll']],
 	[pattern: '/index.gsp',      access: ['permitAll']],
+	[pattern: '/calendario',      access: ['permitAll']],
+	[pattern: '/algo',       access: ['permitAll']],
+	[pattern: '/ejemplo',       access: ['permitAll']],
 	[pattern: '/shutdown',       access: ['permitAll']],
 	[pattern: '/assets/**',      access: ['permitAll']],
 	[pattern: '/**/js/**',       access: ['permitAll']],
 	[pattern: '/**/css/**',      access: ['permitAll']],
 	[pattern: '/**/images/**',   access: ['permitAll']],
-	[pattern: '/**/favicon.ico', access: ['permitAll']]
+	[pattern: '/**/favicon.ico', access: ['permitAll']],
+	[pattern: '/logout', access: ['permitAll']]
+
 ]
 
 grails.plugin.springsecurity.filterChain.chainMap = [

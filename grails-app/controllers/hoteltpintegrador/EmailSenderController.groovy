@@ -4,11 +4,12 @@ import grails.plugin.springsecurity.annotation.Secured
 
 @Secured('ROLE_ADMIN')
 class EmailSenderController {
-
+    def mailService
     def index() { }
     def send() {
-        sendMail {
-            to params.address
+        mailService.sendMail {
+            from "UNTDFtpHOTEL@gmail.com"
+            to "ezequielobreque777@gmail.com"
             subject params.subject
             text params.body
         }

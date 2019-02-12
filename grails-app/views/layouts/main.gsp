@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <title>
@@ -29,11 +33,17 @@
                     </i> Grails
                 </a>
             </div>
-            <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0.8px;">
-                <ul class="nav navbar-nav navbar-right">
-                    <g:pageProperty name="page.nav" />
-                </ul>
-            </div>
+
+            <li class="controller">
+                <a href="/login/index">Log In</a>
+            </li>
+            <li class="controller">
+                <a href="/logout">Log Out</a>
+            </li>
+
+
+
+
         </div>
     </div>
 

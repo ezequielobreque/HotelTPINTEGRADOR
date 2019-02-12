@@ -55,7 +55,7 @@ class Habitaciones {
         }
     }
     static constraints = {
-        nombre unique:true;
+
 
 
     }

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="layout" content="main" />
-        <g:set var="entityName" value="${message(code: 'solicitudHotel.label', default: 'SolicitudHotel')}" />
-        <title><g:message code="default.show.label" args="[entityName]" /></title>
-    </head>
+    <meta name="layout" content="main" />
+    <g:set var="entityName" value="${message(code: 'solicitudHotel.label', default: 'SolicitudHotel')}" />
+    <title><g:message code="default.show.label" args="[entityName]" /></title>
+</head>
     <body>
         <a href="#show-solicitudHotel" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div class="nav" role="navigation">
@@ -19,7 +19,11 @@
             <g:if test="${flash.message}">
             <div class="message" role="status">${flash.message}</div>
             </g:if>
+
+
             <f:display bean="solicitudHotel" />
+
+
             <g:form resource="${this.solicitudHotel}" method="DELETE">
                 <fieldset class="buttons">
                     <g:link action="aceptarSolicitud" resource="${this.solicitudHotel}">aceptar solicitud</g:link>

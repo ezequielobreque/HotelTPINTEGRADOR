@@ -5,13 +5,13 @@ import grails.validation.ValidationException
 import hoteltpintegrador.grails.FeaturedImageCommand
 
 import static org.springframework.http.HttpStatus.*
-@Secured('ROLE_ADMIN')
+@Secured('permitAll')
 class HotelController {
 
     HotelService hotelService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-
+    @Secured('ROLE_ADMIN')
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond hotelService.list(params), model:[hotelCount: hotelService.count()]
@@ -20,13 +20,13 @@ class HotelController {
     def show(Long id) {
         respond hotelService.get(id)
     }
-
+    @Secured('ROLE_ADMIN')
     def create() {
         respond new Hotel(params)
 
     }
 
-
+    @Secured('ROLE_ADMIN')
     def save(Hotel hotel) {
         if (hotel == null) {
             notFound()
@@ -68,6 +68,7 @@ class HotelController {
         }
         [hotel: hotel]
     }
+    @Secured('ROLE_ADMIN')
     def edit(Long id) {
         respond hotelService.get(id)
     }
@@ -102,6 +103,7 @@ class HotelController {
 
         redirect hotel
     }
+    @Secured('ROLE_ADMIN')
     def delete(Long id) {
         if (id == null) {
             notFound()

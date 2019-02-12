@@ -3,13 +3,13 @@ package hoteltpintegrador
 import grails.plugin.springsecurity.annotation.Secured
 import grails.validation.ValidationException
 import static org.springframework.http.HttpStatus.*
-@Secured('ROLE_ADMIN')
+@Secured('permitAll')
 class SolicitudHotelController {
 
     SolicitudHotelService solicitudHotelService
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-
+    @Secured("ROLE_ADMIN")
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond solicitudHotelService.list(params), model:[solicitudHotelCount: solicitudHotelService.count()]
@@ -19,7 +19,8 @@ class SolicitudHotelController {
         respond solicitudHotelService.get(id)
     }
 
-    def create() {
+    def create(Long id) {
+        params.hotel=id
         respond new SolicitudHotel(params)
     }
 
@@ -70,6 +71,7 @@ class SolicitudHotelController {
             '*'{ respond solicitudHotel, [status: OK] }
         }
     }
+    @Secured("ROLE_ADMIN")
     def aceptar(SolicitudHotel solicitudReserva) {
 
 
@@ -87,7 +89,7 @@ class SolicitudHotelController {
 
 
     }
-
+    @Secured("ROLE_ADMIN")
     def aceptarSolicitud(SolicitudHotel solicitudReserva){
 
         def lista = solicitudReserva.getHotel().getHabitaciones()
@@ -98,13 +100,14 @@ class SolicitudHotelController {
         if (habitacion != null) {
 
             habitacion.disponible=false
-            Huesped titular = new Huesped()
-            titular.nombre = solicitudReserva.nombre
-            titular.apellido = solicitudReserva.apellido
-            titular.tipoDocumento = solicitudReserva.tipoDocumento
-            titular.nDocumento = solicitudReserva.nDocumento
-            titular.email = solicitudReserva.email
-            titular.save flush:true
+            Huesped huespe = new Huesped()
+            huespe.nombre = solicitudReserva.nombre
+            huespe.apellido = solicitudReserva.apellido
+            huespe.tipoDocumento = solicitudReserva.tipoDocumento
+            huespe.nDocumento = solicitudReserva.nDocumento
+            huespe.email = solicitudReserva.email
+            huespe.save flush:true
+
 
 
             Reservas reserva=new Reservas()
@@ -112,7 +115,7 @@ class SolicitudHotelController {
             reserva.cantidadHuesped=solicitudReserva.cantidadHuesped
             reserva.habitacion=habitacion
             reserva.hotel=solicitudReserva.hotel
-            reserva.huesped=titular
+            reserva.huesped=huespe
 
             reserva.fechaOut=solicitudReserva.fechaOut
             reserva.nombre=solicitudReserva.nombre +"-"+solicitudReserva.getHotel().getNombre()+ habitacion
@@ -122,7 +125,12 @@ class SolicitudHotelController {
             reserva.save flush:true
             habitacion.save flush:true
 
-
+            sendMail {
+                from "UNTDFtpHOTEL@gmail.com"
+                to huespe.email
+                subject params.subject
+                text "se realizo la reserva en el "+reserva.hotel.getNombre()+"    link de la reserva "+"reserva/show/${Reservas.list().size()+1}"
+            }
 
             aceptar(solicitudReserva)
 

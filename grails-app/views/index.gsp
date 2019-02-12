@@ -47,21 +47,37 @@
 
     <div class="svg" role="presentation">
         <div class="grails-logo-container">
-            <asset:image src="grails-cupsonly-logo-white.svg" class="grails-logo"/>
+            <div style=" font-family: Georgia;font-size: 30px;">Hoteles ushuaia</div>
         </div>
     </div>
 
-    <div id="content" role="main">
-        <section class="row colset-2-its">
-            <h1>Welcome to Grails</h1>
 
-            <p>
-                Congratulations, you have successfully started your first Grails application! At the moment
-                this is the default page, feel free to modify it to either redirect to a controller or display
-                whatever content you may choose. Below is a list of controllers that are currently deployed in
-                this application, click on each to execute its default action:
-            </p>
+<sec:ifNotLoggedIn>
 
+    <div>
+    <g:each  in="${hoteltpintegrador.Hotel.all}">
+        <div class="row">
+            <div class="col-sm-6"><asset:image  src="${it.imagen[1]}"/></div>
+            <div class="col-sm-6"><h1>${it.nombre}</h1>
+            <h1>Estrellas: ${it.estrellas}</h1>
+                <h1>Direccion: ${it.direccion}</h1>
+                <h1>Informacion : ${it.informacion}</h1>
+                <fieldset class="buttons">
+                    <h2><div align="center">
+                        <g:link controller="hotel" action="show" id="${it.id}" >Mirar Hotel</g:link>
+                    </div></h2>
+                </fieldset>
+            </div>
+
+        </div>
+
+
+
+    </g:each>
+    </div>
+</sec:ifNotLoggedIn>
+
+<sec:ifLoggedIn>
             <div id="controllers" role="navigation">
                 <h2>Available Controllers:</h2>
                 <ul>
@@ -72,8 +88,8 @@
                     </g:each>
                 </ul>
             </div>
-        </section>
-    </div>
+</sec:ifLoggedIn>
+
 
 </body>
 </html>
