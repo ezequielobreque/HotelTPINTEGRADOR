@@ -16,7 +16,9 @@ class HotelController {
         params.max = Math.min(max ?: 10, 100)
         respond hotelService.list(params), model:[hotelCount: hotelService.count()]
     }
-
+    def calendario(Long id) {
+        respond hotelService.get(id)
+    }
     def show(Long id) {
         respond hotelService.get(id)
     }

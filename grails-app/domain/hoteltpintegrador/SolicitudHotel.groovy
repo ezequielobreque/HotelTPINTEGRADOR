@@ -1,5 +1,5 @@
 package hoteltpintegrador
-
+import java.sql.Date
 class SolicitudHotel {
     static belongsTo = [hotel:Hotel];
     int cantidadHuesped;
@@ -10,6 +10,7 @@ class SolicitudHotel {
     Integer nDocumento
     Date fechaIN;
     Date fechaOut;
+
 
 
     static constraints = {

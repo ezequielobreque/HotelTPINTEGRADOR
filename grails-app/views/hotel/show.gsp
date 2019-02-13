@@ -56,12 +56,16 @@
                 <g:link controller="SolicitudHotel" action="create" id="${this.hotel.id}">reservar</g:link>
                 </fieldset>
                 </sec:ifNotLoggedIn>
+
+
                 <sec:ifLoggedIn>
                     <f:display bean="hotel" except="imagen,nombre"/>
                 </sec:ifLoggedIn>
-            <g:form resource="${this.hotel}" method="DELETE">
+                    <g:form resource="${this.hotel}" method="DELETE">
                 <sec:ifLoggedIn>
-                <fieldset class="buttons">
+
+                    <fieldset class="buttons">
+                        <g:link controller="Hotel" action="calendario" id="${this.hotel.id}">calendario del hotel</g:link>
                     <g:link class="edit" action="edit" resource="${this.hotel}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
                     <g:link controller="SolicitudHotel" action="create" id="${this.hotel.id}">reservar</g:link>
 

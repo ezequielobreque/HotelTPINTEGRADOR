@@ -5,7 +5,10 @@
         <meta name="layout" content="main" />
         <g:set var="entityName" value="${message(code: 'solicitudHotel.label', default: 'SolicitudHotel')}" />
         <title><g:message code="default.create.label" args="[entityName]" /></title>
-    </head>
+
+
+
+</head>
     <body>
         <a href="#create-solicitudHotel" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
         <div class="nav" role="navigation">
@@ -30,9 +33,11 @@
                 <fieldset class="form">
                     <f:all bean="solicitudHotel" except="fechaIN,fechaOut"/>
 
+
+
                 <div class="form-group row justify-content-center" bean="solicitudHabitacion" property="fechaIN">
-                <label for="example-date-input" class="col-1 col-form-label">Fecha Ingreso</label>
-                <div class="col-3"><g:field type="date" id="datepicker" name="fechaIN" value="${solicitudHabitacionInstance?.fechaIN}" required="true" /></div>
+                    <label for="example-date-input" class="col-1 col-form-label">Fecha Ingreso</label>
+                    <div class="col-3"><g:field type="date" id="datepicker" name="fechaIN" value="${solicitudHabitacionInstance?.fechaIN}" required="true" /></div>
 
                 </div>
                 <div class="form-group row justify-content-center" bean="solicitudHabitacion" property="fechaOut">
@@ -43,16 +48,22 @@
                 </div>
 
 
+
+
+
+
+
+
+
+
+
+
                 <fieldset class="buttons">
                     <g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
                 </fieldset>
             </g:form>
         </div>
-    <script>
-        $( function() {
-            $( "#datepicker" ).datepicker();
-        } );
-    </script>
+
 
     </body>
 </html>

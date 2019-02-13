@@ -128,7 +128,7 @@ class SolicitudHotelController {
             sendMail {
                 from "UNTDFtpHOTEL@gmail.com"
                 to huespe.email
-                subject params.subject
+                subject "reserva de hotel"
                 text "se realizo la reserva en el "+reserva.hotel.getNombre()+"    link de la reserva "+"reserva/show/${Reservas.list().size()+1}"
             }
 

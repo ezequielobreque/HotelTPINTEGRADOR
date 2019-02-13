@@ -1,7 +1,7 @@
 package hoteltpintegrador
 
 
-
+import java.sql.Date
 class Reservas {
     String nombre
     static belongsTo = [hotel:Hotel];
