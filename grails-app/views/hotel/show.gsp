@@ -9,7 +9,7 @@
         /* Demo styles */
         html,body{background:#FFFFFF;margin:0;}
         body{border-top:4px solid #000;}
-        .content{color:#777;font:12px/1.4 "helvetica neue",arial,sans-serif;width:620px;margin:20px auto;}
+        .content{color:#777;font:12px/1.4 "helvetica neue",arial,sans-serif;width:450px;margin:20px auto;}
         h1{font-size:12px;font-weight:normal;color:#ddd;margin:0;}
         p{margin:0 0 20px}
         a {color:#22BCB9;text-decoration:none;}
@@ -21,9 +21,13 @@
 
         </style>
     </head>
-    <body>
+    <div>
         <a href="#show-hotel" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-        <div class="nav" role="navigation">
+    <div class="fondo">
+
+        <fieldset class="nav" role="navigation">
+            <fieldset class="buttons">
+
             <ul>
                 <li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
 <sec:ifLoggedIn>
@@ -31,7 +35,9 @@
                 <li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
 </sec:ifLoggedIn>
             </ul>
-        </div>
+            </fieldset>
+        </fieldset>
+
         <div id="show-hotel" class="content scaffold-show" role="main">
             <h2><f:display bean="hotel" property="nombre" /></h2>
         </div>
@@ -51,7 +57,11 @@
             <div class="message" role="status">${flash.message}</div>
             </g:if>
             <sec:ifNotLoggedIn>
+
+                       <div class="textoBean">
             <f:display bean="hotel" except="imagen,nombre,habitaciones,reserva"/>
+                </div>
+
                 <fieldset class="buttons">
                 <g:link controller="SolicitudHotel" action="create" id="${this.hotel.id}">reservar</g:link>
                 </fieldset>
@@ -59,8 +69,11 @@
 
 
                 <sec:ifLoggedIn>
+                    <fieldset class="textoBean">
                     <f:display bean="hotel" except="imagen,nombre"/>
+                    </fieldset>
                 </sec:ifLoggedIn>
+
                     <g:form resource="${this.hotel}" method="DELETE">
                 <sec:ifLoggedIn>
 
@@ -74,7 +87,7 @@
                 </sec:ifLoggedIn>
 
             </g:form>
-        </div>
+
             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
             <!-- load Galleria -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/galleria/1.5.7/galleria.min.js"></script>
@@ -84,5 +97,6 @@
                     Galleria.run('#galleria');
                 });
             </script>
+    </div>
     </body>
 </html>

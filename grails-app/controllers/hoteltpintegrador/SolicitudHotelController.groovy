@@ -150,6 +150,12 @@ class SolicitudHotelController {
             notFound()
             return
         }
+        sendMail {
+            from "UNTDFtpHOTEL@gmail.com"
+            to solicitudHotelService.get(id).email
+            subject "reserva de hotel"
+            text "se rechazo la reserva en el "+solicitudHotelService.get(id).hotel.getNombre()+",lo sentimos."
+        }
 
         solicitudHotelService.delete(id)
 

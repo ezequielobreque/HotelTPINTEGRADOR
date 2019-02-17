@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8' />
+
+
 
     <asset:stylesheet src='fullcalendar.min.css' rel='stylesheet' />
     <asset:stylesheet src='fullcalendar.print.min.css' rel='stylesheet' media='print' />
@@ -61,6 +62,7 @@
     }
 
     </style>
+
 </head>
 <body>
 

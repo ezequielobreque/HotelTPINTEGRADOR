@@ -21,6 +21,9 @@ class Hotel {
 
 
     }
+    static mapping = {
+        informacion type: "text"
+    }
 
     static constraints = {
     nombre unique:true;

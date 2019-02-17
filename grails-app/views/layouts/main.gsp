@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
+
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -11,39 +12,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <asset:stylesheet src="application.css"/>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <g:layoutHead/>
 </head>
-<body>
+<script>function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
+}</script>
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container">
 
-    <div class="navbar navbar-default navbar-static-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="/#">
-                    <i class="fa grails-icon">
-                        <asset:image src="grails-cupsonly-logo-white.svg"/>
-                    </i> Grails
-                </a>
-            </div>
-
-            <li class="controller">
-                <a href="/login/index">Log In</a>
-            </li>
-            <li class="controller">
-                <a href="/logout">Log Out</a>
-            </li>
+<a class="navbar-brand" href="/#">
+    <i class="fa grails-icon">
+        <asset:image src="depositphotos_184030724-stock-illustration-hotel-vector-icon-green-background.jpg"/>
+    </i> Hoteles Ushuaia
+</a>
 
 
+<div class="topnav" id="myTopnav">
+    <a href="/" >Hoteles</a>
+    <a href="/login/index">Log In</a>
+    <a href="/logout">Log Out</a>
 
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+        <i class="fa fa-bars"></i>
+    </a>
 
-        </div>
+</div>
     </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
     <g:layoutBody/>
 
@@ -54,6 +67,7 @@
     </div>
 
     <asset:javascript src="application.js"/>
+
 
 
 </body>

@@ -16,6 +16,7 @@ class SolicitudHotel {
     static constraints = {
         fechaOut(blank:false,validator: { val, obj -> val?.after(obj.fechaIN)
         });
+        tipoDocumento(inList:['DNI','libreta cívica'])
 
     }
 }

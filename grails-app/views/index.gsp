@@ -7,6 +7,7 @@
     <asset:link rel="icon" href="favicon.ico" type="image/x-ico" />
 </head>
 <body>
+
     <content tag="nav">
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Application Status <span class="caret"></span></a>
@@ -45,28 +46,35 @@
         </li>
     </content>
 
-    <div class="svg" role="presentation">
-        <div class="grails-logo-container">
+<div class="fondo">
+            <div class="titulo">
             <div style=" font-family: Georgia;font-size: 30px;">Hoteles ushuaia</div>
-        </div>
-    </div>
+            </div>
+
 
 
 <sec:ifNotLoggedIn>
 
-    <div>
-    <g:each  in="${hoteltpintegrador.Hotel.all}">
+
+        <g:each  in="${hoteltpintegrador.Hotel.all}">
+        <h1>
+
+
+        </h1>
         <div class="row">
-            <div class="col-sm-6"><asset:image  src="${it.imagen[1]}"/></div>
-            <div class="col-sm-6"><h1>${it.nombre}</h1>
+            <div class="col-sm-6 col-md-6"><asset:image   src="${it.imagen[0]}"/></div>
+
+            <div class="col-sm-6 col-md-6" ><div class="texto" ><h1>${it.nombre}</h1>
             <h1>Estrellas: ${it.estrellas}</h1>
                 <h1>Direccion: ${it.direccion}</h1>
                 <h1>Informacion : ${it.informacion}</h1>
+            </div>
                 <fieldset class="buttons">
                     <h2><div align="center">
                         <g:link controller="hotel" action="show" id="${it.id}" >Mirar Hotel</g:link>
                     </div></h2>
                 </fieldset>
+
             </div>
 
         </div>
@@ -74,9 +82,9 @@
 
 
     </g:each>
-    </div>
-</sec:ifNotLoggedIn>
 
+</sec:ifNotLoggedIn>
+</div>
 <sec:ifLoggedIn>
             <div id="controllers" role="navigation">
                 <h2>Available Controllers:</h2>
