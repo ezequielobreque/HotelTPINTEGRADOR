@@ -4,11 +4,20 @@
 
 
 
+
     <asset:stylesheet src='fullcalendar.min.css' rel='stylesheet' />
     <asset:stylesheet src='fullcalendar.print.min.css' rel='stylesheet' media='print' />
     <asset:javascript src="moment.min.js"/>
     <asset:javascript src="jquery.min.js"/>
     <asset:javascript src="fullcalendar.min.js"/>
+
+
+
+
+
+
+
+
     <script>
 
         $(document).ready(function() {
@@ -63,7 +72,14 @@
 
     </style>
 
-</head>
+
+
+
+
+
+
+
+    </head>
 <body>
 
 <div id='calendar'></div>

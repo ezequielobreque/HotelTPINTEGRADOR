@@ -20,7 +20,7 @@ class BootStrap {
             //Habitaciones habitacion= new Habitaciones(nombre: "Habitacion${habitacionesIndex}")
 
         }
-        hotelalba.addToImagen(nombre:  "hotel_albatroz1.jpg")
+        hotelalba.addToImagen(nombre:  "hotel_albatroz1.jpg", id: 1)
         hotelalba.addToImagen(nombre:  "hotel_albatroz2.jpg")
         hotelalba.addToImagen(nombre:  "hotel_albatroz3.jpg")
         hotelalba.addToImagen(nombre:  "hotel_albatroz4.jpg")
@@ -34,7 +34,7 @@ class BootStrap {
 
         }
 
-        hotellengas.addToImagen(nombre:  "hotel_las_lengas1.jpg")
+        hotellengas.addToImagen(nombre:  "hotel_las_lengas1.jpg", id: 1)
         hotellengas.addToImagen(nombre:  "hotel_las_lengas2.jpg")
         hotellengas.addToImagen(nombre:  "hotel_las_lengas3.jpg")
         hotellengas.addToImagen(nombre:  "hotel_las_lengas4.jpg")
@@ -46,7 +46,7 @@ class BootStrap {
             //Habitaciones habitacion= new Habitaciones(nombre: "Habitacion${habitacionesIndex}")
 
         }
-        hotelush.addToImagen(nombre:  "hotel_ush1.jpg")
+        hotelush.addToImagen(nombre:  "hotel_ush1.jpg",id: 1)
         hotelush.addToImagen(nombre:  "hotel_ush2.jpg")
         hotelush.addToImagen(nombre:  "hotel_ush3.jpg")
         hotelush.addToImagen(nombre:  "hotel_ush4.jpg")

@@ -38,8 +38,8 @@
             </fieldset>
         </fieldset>
 
-        <div id="show-hotel" class="content scaffold-show" role="main">
-            <h2><f:display bean="hotel" property="nombre" /></h2>
+        <div  class="titulo">
+            <h2><f:display  bean="hotel" property="nombre" /></h2>
         </div>
             <div>
                 <div class="content">
