@@ -3,7 +3,8 @@ package hoteltpintegrador
 class Imagenes {
 
     String nombre;
-    int id
+    static belongsTo = [hotel:Hotel]
+
     static constraints = {
         id nullable: true
     }
